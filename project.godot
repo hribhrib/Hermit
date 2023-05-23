@@ -10,9 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Platformer 3D"
-config/description="Platformer 3D demo using a CharacterBody3D.
-It uses similar code to the 2D platformer, but implemented in 3D."
+config/name="Hermit"
+config/description="Hermit the crab is on a journey to get their home again."
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.webp"
