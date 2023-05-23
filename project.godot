@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hermit"
-config/description="Hermit the crab is on a journey to get their home again!"
+config/description="Hermit the crab is on a journey to get their home again! Genau!"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.webp"
