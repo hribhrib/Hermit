@@ -6,6 +6,15 @@ enum _Anim {
 	AIR,
 }
 
+enum _Shell {
+	NONE,
+	TENNIS,
+	DUCK,
+	CAN,
+}
+
+var shell = _Shell.NONE
+
 const SHOOT_TIME = 1.5
 const SHOOT_SCALE = 2.0
 const CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
@@ -114,10 +123,15 @@ func _physics_process(delta):
 
 		$Player/Skeleton.set_transform(Transform3D(m3, mesh_xform.origin))
 
-		if not jumping and jump_attempt:
+		if not jumping and jump_attempt and shell == _Shell.TENNIS:
 			vertical_velocity = JUMP_VELOCITY
 			jumping = true
 			$SoundJump.play()
+			
+		if jump_attempt and shell == _Shell.DUCK:
+			$SoundJump.play()
+			
+			
 
 	else:
 		anim = _Anim.AIR
@@ -144,7 +158,11 @@ func _physics_process(delta):
 	if is_on_floor():
 		movement_dir = velocity
 
-	move_and_slide()
+	if shell == _Shell.CAN:
+		if !jump_attempt:
+			move_and_slide()
+	else:
+		move_and_slide()
 
 	if shoot_blend > 0:
 		shoot_blend *= 0.97
@@ -200,3 +218,12 @@ func adjust_facing(facing: Vector3, target: Vector3, step: float, adjust_rate: f
 	ang = (ang - a) * s
 
 	return (normal * cos(ang) + t * sin(ang)) * facing.length()
+	
+func setTennisBall():
+	shell = _Shell.TENNIS
+
+func setDuck():
+	shell = _Shell.DUCK
+	
+func setCan():
+	shell = _Shell.CAN

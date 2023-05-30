@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0lrpf3mmjdsx"]
+[gd_scene load_steps=23 format=3 uid="uid://d0lrpf3mmjdsx"]
 
 [ext_resource type="PackedScene" uid="uid://dohp772jyjxb7" path="res://stage/stage.tscn" id="1_ybvw5"]
 [ext_resource type="PackedScene" uid="uid://dfxo2jwbj4aeh" path="res://coin/coin.tscn" id="2_chew2"]
 [ext_resource type="PackedScene" uid="uid://o5q0hy6cg6nt" path="res://enemy/enemy.tscn" id="3_nhwvs"]
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="4_ray4s"]
+[ext_resource type="Script" path="res://TennisBall.gd" id="5_qj86g"]
+[ext_resource type="Script" path="res://Duck.gd" id="6_hynma"]
+[ext_resource type="Script" path="res://Can.gd" id="7_yx7op"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.0
@@ -16,6 +19,35 @@ friction = 0.0
 
 [sub_resource type="PhysicsMaterial" id="4"]
 friction = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_tku5g"]
+
+[sub_resource type="Gradient" id="Gradient_c00sn"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_135dc"]
+gradient = SubResource("Gradient_c00sn")
+fill_to = Vector2(0.44086, 0.0860215)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n425e"]
+albedo_color = Color(0.345098, 0.729412, 0.0862745, 1)
+albedo_texture = SubResource("GradientTexture2D_135dc")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mjbby"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4vv7g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er36y"]
+albedo_color = Color(0.882353, 1, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ojumd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_povmx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5kpy"]
+albedo_color = Color(0.862745, 0.862745, 0.862745, 1)
+metallic = 0.51
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_leqbc"]
 
 [node name="Game" type="Node3D"]
 
@@ -264,3 +296,41 @@ physics_material_override = SubResource("4")
 
 [node name="Player" parent="." instance=ExtResource("4_ray4s")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.49833, -3.84189, 3.9334)
+
+[node name="PowerUps" type="Node3D" parent="."]
+
+[node name="TennisBall" type="Area3D" parent="PowerUps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.59843, 0)
+script = ExtResource("5_qj86g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerUps/TennisBall"]
+mesh = SubResource("SphereMesh_tku5g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_n425e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerUps/TennisBall"]
+shape = SubResource("SphereShape3D_mjbby")
+
+[node name="Duck" type="Area3D" parent="PowerUps"]
+transform = Transform3D(0.927399, 0.374073, 0, -0.374073, 0.927399, 0, 0, 0, 1, -0.825835, 1.03401, -14.6906)
+script = ExtResource("6_hynma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerUps/Duck"]
+mesh = SubResource("CapsuleMesh_4vv7g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_er36y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerUps/Duck"]
+shape = SubResource("CapsuleShape3D_ojumd")
+
+[node name="Can" type="Area3D" parent="PowerUps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76718, 1.14517, -14.4428)
+script = ExtResource("7_yx7op")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PowerUps/Can"]
+transform = Transform3D(0.990392, -0.138292, 0, 0.138292, 0.990392, 0, 0, 0, 1, 0, 0.0760989, 0)
+mesh = SubResource("CylinderMesh_povmx")
+surface_material_override/0 = SubResource("StandardMaterial3D_m5kpy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerUps/Can"]
+shape = SubResource("CylinderShape3D_leqbc")
