@@ -1,13 +1,29 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0lrpf3mmjdsx"]
+[gd_scene load_steps=27 format=3 uid="uid://d0lrpf3mmjdsx"]
 
+[ext_resource type="AudioStream" uid="uid://eh5rduqatjwr" path="res://music/t3-loop_session.mp3" id="1_u521t"]
 [ext_resource type="PackedScene" uid="uid://dohp772jyjxb7" path="res://stage/stage.tscn" id="1_ybvw5"]
 [ext_resource type="AudioStream" uid="uid://c6b5vyaup45f6" path="res://music/t1-loop_session.mp3" id="2_33vmd"]
 [ext_resource type="PackedScene" uid="uid://dfxo2jwbj4aeh" path="res://coin/coin.tscn" id="2_chew2"]
+[ext_resource type="AudioStream" uid="uid://hwicnjrhytan" path="res://music/t2-loop_session.mp3" id="2_nn1sb"]
 [ext_resource type="PackedScene" uid="uid://o5q0hy6cg6nt" path="res://enemy/enemy.tscn" id="3_nhwvs"]
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="4_ray4s"]
 [ext_resource type="Script" path="res://TennisBall.gd" id="5_qj86g"]
 [ext_resource type="Script" path="res://Duck.gd" id="6_hynma"]
 [ext_resource type="Script" path="res://Can.gd" id="7_yx7op"]
+
+[sub_resource type="GDScript" id="GDScript_mqimf"]
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.0
@@ -52,10 +68,21 @@ metallic = 0.51
 
 [node name="Game" type="Node3D"]
 
-[node name="BackgroundTrack" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundTrack3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_u521t")
+bus = &"Background"
+script = SubResource("GDScript_mqimf")
+
+[node name="BackgroundTrack2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nn1sb")
+bus = &"Background"
+script = SubResource("GDScript_mqimf")
+
+[node name="BackgroundTrack1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_33vmd")
 autoplay = true
 bus = &"Background"
+script = SubResource("GDScript_mqimf")
 
 [node name="Stage" parent="." instance=ExtResource("1_ybvw5")]
 

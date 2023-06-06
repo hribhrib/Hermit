@@ -247,6 +247,8 @@ shape = SubResource("5")
 
 [node name="Sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2")
+volume_db = -4.0
+bus = &"Sound"
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000732422, 0.542954, 0)

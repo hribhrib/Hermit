@@ -13,6 +13,10 @@ enum _Shell {
 	CAN,
 }
 
+var bg_music1 
+var bg_music2
+var bg_music3
+
 var shell = _Shell.NONE
 
 const CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
@@ -39,6 +43,10 @@ var coins := 0
 @onready var _camera := $Target/Camera3D as Camera3D
 @onready var _animation_tree := $AnimationTree as AnimationTree
 
+func _ready():
+	bg_music1 = get_parent().get_node("BackgroundTrack1")
+	bg_music2 = get_parent().get_node("BackgroundTrack2")
+	bg_music3 = get_parent().get_node("BackgroundTrack3")
 
 func _physics_process(delta):
 	if Input.is_action_pressed("reset_position") or global_position.y < -12:
@@ -198,9 +206,18 @@ func adjust_facing(facing: Vector3, target: Vector3, step: float, adjust_rate: f
 	
 func setTennisBall():
 	shell = _Shell.TENNIS
+	bg_music2.stop()
+	bg_music3.stop()
+	bg_music1.play()
 
 func setDuck():
 	shell = _Shell.DUCK
+	bg_music1.stop()
+	bg_music3.stop()
+	bg_music2.play()
 	
 func setCan():
 	shell = _Shell.CAN
+	bg_music1.stop()
+	bg_music2.stop()
+	bg_music3.play()
