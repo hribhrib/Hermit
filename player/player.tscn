@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cdx3i7hr2acow" path="res://player/sound_shoot.wav" id="7"]
 [ext_resource type="Texture2D" uid="uid://bw76q621n8fie" path="res://player/controls/osb_right.webp" id="7_yth2f"]
 [ext_resource type="AudioStream" uid="uid://bplqk77bffdxr" path="res://player/sound_jump.wav" id="8"]
-[ext_resource type="AudioStream" uid="uid://c62vd37iv4ywe" path="res://sound/penguin_RIP 03.wav" id="10_yllaa"]
+[ext_resource type="AudioStream" uid="uid://c62vd37iv4ywe" path="res://sound/penguin_RIP 03.wav" id="10_myvfw"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.4
@@ -90,9 +90,10 @@ random_volume_offset_db = 0.0
 stream_0/stream = ExtResource("8")
 stream_0/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_knsse"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ak0uo"]
 streams_count = 1
-stream_0/stream = ExtResource("10_yllaa")
+random_pitch = 1.25
+stream_0/stream = ExtResource("10_myvfw")
 stream_0/weight = 1.0
 
 [sub_resource type="Gradient" id="Gradient_p2tu5"]
@@ -227,11 +228,12 @@ stream = SubResource("AudioStreamRandomizer_basvh")
 
 [node name="SoundJump" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_axa7i")
-volume_db = -6.0
+volume_db = -8.0
+bus = &"Sound"
 
 [node name="Duck" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_knsse")
-volume_db = 12.0
+stream = SubResource("AudioStreamRandomizer_ak0uo")
+volume_db = 16.0
 
 [node name="BlobShadow" type="Decal" parent="."]
 size = Vector3(1.6, 12, 1.6)

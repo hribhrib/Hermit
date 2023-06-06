@@ -502,6 +502,7 @@ stream = SubResource("AudioStreamRandomizer_u5a1v")
 volume_db = 12.0
 autoplay = true
 max_distance = 30.0
+bus = &"Sound"
 doppler_tracking = 1
 
 [node name="SoundHit" type="AudioStreamPlayer3D" parent="."]

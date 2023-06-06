@@ -15,8 +15,6 @@ enum _Shell {
 
 var shell = _Shell.NONE
 
-const SHOOT_TIME = 1.5
-const SHOOT_SCALE = 2.0
 const CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
 const MAX_SPEED = 6.0
 const TURN_SPEED = 40.0
@@ -30,8 +28,6 @@ const SHARP_TURN_THRESHOLD = deg_to_rad(140.0)
 
 var movement_dir := Vector3()
 var jumping := false
-var prev_shoot := false
-var shoot_blend := 0.0
 
 # Number of coins collected.
 var coins := 0
@@ -76,7 +72,6 @@ func _physics_process(delta):
 	movement_direction = movement_direction.normalized()
 
 	var jump_attempt := Input.is_action_pressed(&"jump")
-	var shoot_attempt := Input.is_action_pressed(&"shoot")
 
 	if is_on_floor():
 		var sharp_turn := horizontal_speed > 0.1 and \
@@ -164,23 +159,6 @@ func _physics_process(delta):
 	else:
 		move_and_slide()
 
-	if shoot_blend > 0:
-		shoot_blend *= 0.97
-		if (shoot_blend < 0):
-			shoot_blend = 0
-
-	if shoot_attempt and not prev_shoot:
-		shoot_blend = SHOOT_TIME
-		var bullet := preload("res://player/bullet/bullet.tscn").instantiate() as Bullet
-		bullet.set_transform($Player/Skeleton/Bullet.get_global_transform().orthonormalized())
-		get_parent().add_child(bullet)
-		bullet.set_linear_velocity(
-			$Player/Skeleton/Bullet.get_global_transform().basis[2].normalized() * BULLET_SPEED
-		)
-		bullet.add_collision_exception_with(self)
-		$SoundShoot.play()
-
-	prev_shoot = shoot_attempt
 
 	if is_on_floor():
 		# How much the player should be blending between the "idle" and "walk/run" animations.
@@ -191,7 +169,6 @@ func _physics_process(delta):
 
 	_animation_tree[&"parameters/state/blend_amount"] = anim
 	_animation_tree[&"parameters/air_dir/blend_amount"] = clampf(-velocity.y / 4 + 0.5, 0, 1)
-	_animation_tree[&"parameters/gun/blend_amount"] = minf(shoot_blend, 1.0)
 
 
 func adjust_facing(facing: Vector3, target: Vector3, step: float, adjust_rate: float, \
