@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0lrpf3mmjdsx"]
+[gd_scene load_steps=24 format=3 uid="uid://d0lrpf3mmjdsx"]
 
 [ext_resource type="PackedScene" uid="uid://dohp772jyjxb7" path="res://stage/stage.tscn" id="1_ybvw5"]
+[ext_resource type="AudioStream" uid="uid://c6b5vyaup45f6" path="res://music/t1-loop_session.mp3" id="2_33vmd"]
 [ext_resource type="PackedScene" uid="uid://dfxo2jwbj4aeh" path="res://coin/coin.tscn" id="2_chew2"]
 [ext_resource type="PackedScene" uid="uid://o5q0hy6cg6nt" path="res://enemy/enemy.tscn" id="3_nhwvs"]
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="4_ray4s"]
@@ -50,6 +51,11 @@ metallic = 0.51
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_leqbc"]
 
 [node name="Game" type="Node3D"]
+
+[node name="BackgroundTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_33vmd")
+autoplay = true
+bus = &"Background"
 
 [node name="Stage" parent="." instance=ExtResource("1_ybvw5")]
 

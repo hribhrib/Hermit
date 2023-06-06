@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c62vd37iv4ywe"
+path="res://.godot/imported/penguin_RIP 03.wav-4053e844eadfcc85b2cd26260c15be81.sample"
+
+[deps]
+
+source_file="res://sound/penguin_RIP 03.wav"
+dest_files=["res://.godot/imported/penguin_RIP 03.wav-4053e844eadfcc85b2cd26260c15be81.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

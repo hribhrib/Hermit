@@ -129,7 +129,7 @@ func _physics_process(delta):
 			$SoundJump.play()
 			
 		if jump_attempt and shell == _Shell.DUCK:
-			$SoundJump.play()
+			$Duck.play()
 			
 			
 
