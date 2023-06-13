@@ -1,12 +1,12 @@
 extends Camera3D
 
 
-const MAX_HEIGHT = 2.0
-const MIN_HEIGHT = 0.0
+const MAX_HEIGHT = 4.0
+const MIN_HEIGHT = 1.0
 
 @export var min_distance := 0.5
 @export var max_distance := 3.5
-@export var angle_v_adjust := 0.0
+@export var angle_v_adjust := 90.0
 @export var autoturn_ray_aperture := 25.0
 @export var autoturn_speed := 50.0
 

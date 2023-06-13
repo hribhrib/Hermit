@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci4ns551kegnn"]
+
+[ext_resource type="PackedScene" uid="uid://d3xwgghy8k4q" path="res://player/CRAB_v1.glb" id="1_q0med"]
+
+[node name="Player2" instance=ExtResource("1_q0med")]
+
+[node name="Skeleton3D" parent="crabBones" index="0"]
+bones/0/position = Vector3(0.0251374, -0.157071, 2.42305)
+bones/0/rotation = Quaternion(-0.0325209, 0.776316, -0.628604, 0.0336624)
+bones/1/rotation = Quaternion(-0.116836, 1.16417e-07, 2.27549e-08, 0.993151)
+bones/2/rotation = Quaternion(-0.49221, 1.85058e-08, -3.68541e-08, 0.870476)
+bones/3/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.49221, 6.41489e-08, 1.63558e-07, 0.870476)
+bones/11/rotation = Quaternion(-0.104501, -0.644476, -0.613845, 0.443762)
+bones/13/rotation = Quaternion(-0.386195, -0.468872, -0.685827, 0.400817)
+bones/15/rotation = Quaternion(-0.368326, -0.495905, -0.669698, 0.412212)
+bones/17/rotation = Quaternion(-0.350286, -0.538644, -0.608358, 0.4659)
+bones/20/rotation = Quaternion(-0.0951171, 0.64895, 0.62993, 0.415938)
+bones/22/rotation = Quaternion(-0.32445, 0.500998, 0.722072, 0.34978)
+bones/24/rotation = Quaternion(-0.308382, 0.52912, 0.704442, 0.358739)
+bones/26/rotation = Quaternion(-0.296484, 0.57682, 0.642129, 0.408712)
+bones/28/rotation = Quaternion(4.26435e-08, -0.620927, 0.783868, 1.98147e-07)
+
+[node name="Icosphere001" parent="crabBones/Skeleton3D" index="0"]
+transform = Transform3D(0.995619, -0.0914139, -0.0196798, 0.0928132, 0.991697, 0.0890086, 0.0113798, -0.0904448, 0.995836, 0.000490069, 0.121912, 0.0951318)
+bone_idx = 4
+
+[node name="Cube002" parent="crabBones/Skeleton3D" index="1"]
+transform = Transform3D(0.995619, -0.0914139, -0.0196798, 0.0928132, 0.991697, 0.0890087, 0.0113798, -0.0904448, 0.995837, 0.00048995, 0.121912, 0.0951318)
+bone_idx = 5
+
+[node name="Icosphere" parent="crabBones/Skeleton3D" index="2"]
+transform = Transform3D(0.995619, -0.0914139, -0.0196798, 0.0928132, 0.991697, 0.0890088, 0.0113798, -0.0904449, 0.995837, 0.00048998, 0.121912, 0.0951322)
+bone_idx = 8
+
+[node name="Cube001" parent="crabBones/Skeleton3D" index="3"]
+transform = Transform3D(0.995619, -0.0914139, -0.0196798, 0.0928132, 0.991697, 0.0890088, 0.0113798, -0.0904449, 0.995837, 0.00048995, 0.121913, 0.0951322)
+bone_idx = 9
+
+[node name="Cube010" parent="crabBones/Skeleton3D" index="4"]
+transform = Transform3D(0.991036, -0.133443, 0.00647569, 0.133456, 0.991054, -0.0015409, -0.00621232, 0.00239182, 0.999978, 0.0283666, 0.0636891, -0.0188134)
+bone_idx = 12
+
+[node name="Cube008" parent="crabBones/Skeleton3D" index="5"]
+transform = Transform3D(1, 1.86265e-09, 1.3411e-07, 5.02914e-08, 1, 2.01166e-07, -7.45058e-08, 3.35276e-07, 1, 0.0115823, -0.0344178, -0.00703728)
+bone_idx = 14
+
+[node name="Cube007" parent="crabBones/Skeleton3D" index="6"]
+transform = Transform3D(1, 7.21775e-08, 1.71363e-07, 1.18045e-07, 1, 3.50177e-07, -2.98023e-07, 5.96046e-08, 1, 0.00783437, -0.0212104, -0.00540996)
+bone_idx = 16
+
+[node name="Cube006" parent="crabBones/Skeleton3D" index="7"]
+transform = Transform3D(1, -2.58675e-07, 4.47035e-08, 4.93601e-08, 1, 2.57045e-07, -1.11759e-07, 8.19564e-08, 1, 0.0291734, -0.0217948, -0.00553296)
+bone_idx = 18
+
+[node name="Cube009" parent="crabBones/Skeleton3D" index="8"]
+transform = Transform3D(0.99985, 0.0130907, -0.011359, -0.0130998, 0.999914, -0.000752002, 0.0113482, 0.000901371, 0.999935, -0.00988019, 0.136094, -0.000334203)
+bone_idx = 21
+
+[node name="Cube005" parent="crabBones/Skeleton3D" index="9"]
+transform = Transform3D(1, -2.6077e-07, -2.38419e-07, 1.94646e-07, 1, 3.57628e-07, 5.96046e-08, 1.2666e-07, 1, 0.00634539, 0.07652, 0.00656533)
+bone_idx = 23
+
+[node name="Cube004" parent="crabBones/Skeleton3D" index="10"]
+transform = Transform3D(1, 2.10945e-07, -1.86265e-07, -1.28523e-07, 1, 2.5332e-07, 2.16067e-07, 8.9407e-08, 1, 0.00383893, 0.0634232, 0.0049668)
+bone_idx = 25
+
+[node name="Cube003" parent="crabBones/Skeleton3D" index="11"]
+transform = Transform3D(1, 1.82539e-07, -1.78814e-07, -8.17236e-08, 1, 1.37836e-07, 1.49012e-07, 2.49594e-07, 1, 0.0250143, 0.0662997, 0.00526825)
+bone_idx = 27
+
+[node name="Cone" parent="crabBones/Skeleton3D" index="12"]
+transform = Transform3D(0.995619, -0.0922602, -0.0152265, 0.0928132, 0.994845, 0.0408438, 0.0113798, -0.0420777, 0.99905, 0.0141617, -0.013937, 0.00696969)
+bone_idx = 29
+
+[node name="Cube" parent="crabBones/Skeleton3D" index="13"]
+transform = Transform3D(0.995619, -0.0928158, -0.011359, 0.0928132, 0.995683, -0.000752121, 0.0113798, -0.000304908, 0.999936, 0.0109389, 0.0215115, -0.000184059)
+bone_idx = 30

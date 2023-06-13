@@ -1,4 +1,4 @@
-class_name Player2 extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 
 enum _Anim {
@@ -106,7 +106,7 @@ func _physics_process(delta):
 
 		horizontal_velocity = horizontal_direction * horizontal_speed
 
-		var mesh_xform := ($Player/Skeleton as Node3D).get_transform()
+		var mesh_xform := ($Player/crabBones as Node3D).get_transform()
 		var facing_mesh := -mesh_xform.basis[0].normalized()
 		facing_mesh = (facing_mesh - Vector3.UP * facing_mesh.dot(Vector3.UP)).normalized()
 
@@ -124,7 +124,7 @@ func _physics_process(delta):
 			-facing_mesh.cross(Vector3.UP).normalized()
 		).scaled(CHAR_SCALE)
 
-		$Player/Skeleton.set_transform(Transform3D(m3, mesh_xform.origin))
+		$Player/crabBones.set_transform(Transform3D(m3, mesh_xform.origin))
 
 		if not jumping and jump_attempt and shell == _Shell.TENNIS:
 			vertical_velocity = JUMP_VELOCITY
