@@ -21,6 +21,11 @@ var bg_music1_time = 0
 var bg_music2_time = 0
 var bg_music3_time = 0
 
+var cone
+var ball
+var duck
+var can
+
 var shell = _Shell.NONE
 
 const CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
@@ -51,7 +56,12 @@ func _ready():
 	bg_music1 = get_parent().get_node("BackgroundTrack1")
 	bg_music2 = get_parent().get_node("BackgroundTrack2")
 	bg_music3 = get_parent().get_node("BackgroundTrack3")
-
+	
+	cone = $Player/crabBones/Skeleton3D/Cone/Cone
+	ball = $Player/crabBones/Skeleton3D/Cone/BALL
+	duck = $Player/crabBones/Skeleton3D/Cone/DUCK
+	can = $Player/crabBones/Skeleton3D/Cone/CAN
+	
 func _physics_process(delta):
 	if Input.is_action_pressed("reset_position") or global_position.y < -12:
 		# Player hit the reset button or fell off the map.
@@ -210,16 +220,22 @@ func adjust_facing(facing: Vector3, target: Vector3, step: float, adjust_rate: f
 	
 func setTennisBall():
 	shell = _Shell.TENNIS
+	clearShells()
+	ball.visible = true
 	clearMusic()
 	bg_music1.play(bg_music1_time)
 
 func setDuck():
 	shell = _Shell.DUCK
+	clearShells()
+	duck.visible = true
 	clearMusic()
 	bg_music2.play(bg_music2_time)
 	
 func setCan():
 	shell = _Shell.CAN
+	clearShells()
+	can.visible = true
 	clearMusic()
 	bg_music3.play(bg_music3_time)
 	
@@ -233,3 +249,9 @@ func clearMusic():
 	if(bg_music3.get_playback_position()!=0.0):
 		bg_music3_time = bg_music3.get_playback_position()
 	bg_music3.stop()
+	
+func clearShells():
+	cone.hide()
+	ball.hide()
+	duck.hide()
+	can.hide()
