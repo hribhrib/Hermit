@@ -86,4 +86,4 @@ func _physics_process(delta: float):
 	look_at_from_position(pos, target, Vector3.UP)
 
 	# Turn a little up or down.
-	transform.basis = Basis(transform.basis[0], deg_to_rad(angle_v_adjust)) * transform.basis
+	#transform.basis = Basis(transform.basis[0], deg_to_rad(angle_v_adjust)) * transform.basis
