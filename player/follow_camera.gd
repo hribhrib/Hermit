@@ -86,4 +86,5 @@ func _physics_process(delta: float):
 	look_at_from_position(pos, target, Vector3.UP)
 
 	# Turn a little up or down.
-	#transform.basis = Basis(transform.basis[0], deg_to_rad(angle_v_adjust)) * transform.basis
+	# There was an error with following line that was caused by not normalized vector. This is a quickfix!
+	# transform.basis = Basis(transform.basis[0], deg_to_rad(angle_v_adjust)) * transform.basis

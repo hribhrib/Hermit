@@ -5,7 +5,7 @@ extends Area3D
 # var b = "text"
 
 var player
-
+var colliding = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +15,11 @@ func _physics_process(delta):
 	rotate_y(delta)
 	
 	if(overlaps_body(player)):
-		player.setCan()
+		if(colliding==false):
+			player.setCan()
+			colliding = true
+	else:
+		colliding = false
 		#queue_free()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

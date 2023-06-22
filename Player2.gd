@@ -17,6 +17,10 @@ var bg_music1
 var bg_music2
 var bg_music3
 
+var bg_music1_time = 0
+var bg_music2_time = 0
+var bg_music3_time = 0
+
 var shell = _Shell.NONE
 
 const CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
@@ -206,18 +210,26 @@ func adjust_facing(facing: Vector3, target: Vector3, step: float, adjust_rate: f
 	
 func setTennisBall():
 	shell = _Shell.TENNIS
-	bg_music2.stop()
-	bg_music3.stop()
-	bg_music1.play()
+	clearMusic()
+	bg_music1.play(bg_music1_time)
 
 func setDuck():
 	shell = _Shell.DUCK
-	bg_music1.stop()
-	bg_music3.stop()
-	bg_music2.play()
+	clearMusic()
+	bg_music2.play(bg_music2_time)
 	
 func setCan():
 	shell = _Shell.CAN
+	clearMusic()
+	bg_music3.play(bg_music3_time)
+	
+func clearMusic():
+	if(bg_music1.get_playback_position()!=0.0):
+		bg_music1_time = bg_music1.get_playback_position()
 	bg_music1.stop()
+	if(bg_music2.get_playback_position()!=0.0):
+		bg_music2_time = bg_music2.get_playback_position()
 	bg_music2.stop()
-	bg_music3.play()
+	if(bg_music3.get_playback_position()!=0.0):
+		bg_music3_time = bg_music3.get_playback_position()
+	bg_music3.stop()
