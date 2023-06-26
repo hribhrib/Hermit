@@ -9,11 +9,11 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -1.19624)
 
 [node name="RayFloor" type="RayCast3D" parent="Armature" index="0"]
-transform = Transform3D(1, 0, 0, 0, -0.913829, -0.406099, 0, 0.406099, -0.913829, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.913829, -0.406099, 0, 0.406099, -0.913829, 0, 6.51879, 4.76837e-07)
 target_position = Vector3(0, -1, 0.5)
 
 [node name="RayWall" type="RayCast3D" parent="Armature" index="1"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 3.55271e-15, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 3.55271e-15, 0, 6.51879, 4.76837e-07)
 target_position = Vector3(0, 0, 1.5)
 
 [node name="Skeleton3D" parent="Armature" index="2"]

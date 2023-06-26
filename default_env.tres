@@ -1,16 +1,17 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://odyhne6bhlsu"]
 
-[ext_resource type="Texture2D" uid="uid://caj15rrr8ucmk" path="res://stage/panoramic-view-sea.jpg" id="1_dv2oj"]
+[ext_resource type="Texture2D" uid="uid://caj15rrr8ucmk" path="res://stage/panoramic-view-sea.jpg" id="1_5kk7t"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6rmi2"]
-panorama = ExtResource("1_dv2oj")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cchlr"]
+panorama = ExtResource("1_5kk7t")
 
-[sub_resource type="Sky" id="Sky_os0rp"]
-sky_material = SubResource("PanoramaSkyMaterial_6rmi2")
+[sub_resource type="Sky" id="Sky_nwvur"]
+sky_material = SubResource("PanoramaSkyMaterial_cchlr")
 
 [resource]
 background_mode = 2
-sky = SubResource("Sky_os0rp")
+sky = SubResource("Sky_nwvur")
+sky_rotation = Vector3(0, -0.914553, 0)
 ambient_light_source = 2
 ambient_light_color = Color(0.6, 0.6, 0.6, 1)
 ambient_light_sky_contribution = 0.0
