@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://30webh3xhk1m"
+uid="uid://c0lnluais4c3l"
 path="res://.godot/imported/Seagull Ambient 1.wav-54334d82b38b2f3f4589feb11dd05c93.sample"
 
 [deps]
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=2
+edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0
